@@ -1,0 +1,102 @@
+{
+    "Lovetech": [
+        {
+            "name": "首頁",
+            "block": [
+                {
+                    "name": "Banner"
+                },
+                {
+                    "name": "我們的服務"
+                },
+                {
+                    "name": "我們的團隊"
+                },
+                {
+                    "name": "專業協助",
+                    "link": "聯絡我們"
+                }
+            ]
+        },
+        {
+            "name": "關於我們",
+            "block": [
+                {
+                    "name": "公司簡介"
+                },
+                {
+                    "name": "軟體開發實力"
+                },
+                {
+                    "name": "企業解決方案"
+                },
+                {
+                    "name": "行政流程規劃"
+                },
+                {
+                    "name": "專業團隊"
+                },
+                {
+                    "name": "聯絡我們"
+                },
+                {
+                    "name": "我們的核心價值"
+                }
+            ]
+        },
+        {
+            "name": "最新消息",
+            "block": [
+                {
+                    "name": "列表",
+                    "link": "最新消息詳細"
+                }
+            ]
+        },
+        {
+            "name": "最新消息詳細",
+            "link": "聯絡我們"
+        },
+        {
+            "name": "合作夥伴",
+            "block": [
+                {
+                    "name": "策略合作夥伴"
+                },
+                {
+                    "name": "產業合作"
+                },
+                {
+                    "name": "成為合作夥伴",
+                    "link": "最新消息詳細"
+                }
+            ]
+        },
+        {
+            "name": "聯絡我們",
+            "block": [
+                {
+                    "name": "聯絡資訊"
+                },
+                {
+                    "name": "發送訊息",
+                    "API": [
+                        {
+                            "name": "表單接收",
+                            "url": "https://formsubmit.co/ajax/lovetech.tw@gmail.com"
+                        }
+                    ]
+                },
+                {
+                    "name": "公司位置",
+                    "API": [
+                        {
+                            "name": "google map",
+                            "url":"https://formsubmit.co/ajax/lovetech.tw@gmail.com"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
