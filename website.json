@@ -2,6 +2,7 @@
     "Lovetech": [
         {
             "name": "首頁",
+            "file": "index.html",
             "block": [
                 {
                     "name": "Banner"
@@ -20,6 +21,7 @@
         },
         {
             "name": "關於我們",
+            "file": "about.html",
             "block": [
                 {
                     "name": "公司簡介"
@@ -46,6 +48,7 @@
         },
         {
             "name": "最新消息",
+            "file": "news.html",
             "block": [
                 {
                     "name": "列表",
@@ -55,10 +58,12 @@
         },
         {
             "name": "最新消息詳細",
+            "file": "news-detail.html",
             "link": "聯絡我們"
         },
         {
             "name": "合作夥伴",
+            "file": "partner.html",
             "block": [
                 {
                     "name": "策略合作夥伴"
@@ -74,6 +79,7 @@
         },
         {
             "name": "聯絡我們",
+            "file": "contact.html",
             "block": [
                 {
                     "name": "聯絡資訊"
