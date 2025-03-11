@@ -1,3 +1,3 @@
-import { load } from "./components/Header.js";
+import { load as loadHeader } from "./components/Header.js";
 
-load("#header-block");
+loadHeader("#header-block");
