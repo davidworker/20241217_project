@@ -1,0 +1,35 @@
+.index-banner {
+    height: 100vh;
+    background-image: url('../images/index-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+.index-banner-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 26px;
+}
+
+.index-banner-inner h1 {
+    font-size: 3.5rem;
+    font-weight: 500;
+}
+
+.index-banner-inner h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.index-banner-inner .btn {
+    background-color: #fff;
+    color: var(--primary-color);
+    padding: 15px 40px;
+    border-radius: 100px;
+    text-decoration: none;
+}
