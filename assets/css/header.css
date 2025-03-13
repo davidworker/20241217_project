@@ -1,45 +1,45 @@
 .header {
-  height: var(--header-height);
-  background-color: var(--header-bg-color);
+    height: var(--header-height);
+    background-color: var(--header-bg-color);
 }
 
 .header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
 }
 
 .logo {
-  color: var(--primary-color);
-  font-size: 1.8rem;
-  font-weight: 800;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    font-weight: 800;
 }
 
 .menu-list {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .menu-list li {
-  transition: color 0.3s;
+    transition: color 0.3s;
 }
 
 .menu-list li:hover {
-  color: var(--primary-color);
+    color: var(--primary-color);
 }
 
 .menu-list li.active {
-  color: var(--primary-color);
-  position: relative;
+    color: var(--primary-color);
+    position: relative;
 }
 
 .menu-list li.active::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  border-bottom: 2px solid var(--primary-color);
-  width: 100%;
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    border-bottom: 2px solid var(--primary-color);
+    width: 100%;
 }
