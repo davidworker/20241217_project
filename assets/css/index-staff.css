@@ -17,11 +17,92 @@
     padding: 40px 30px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.4sease;
+    transition: all 0.4s ease;
     text-align: center;
     position: relative;
     overflow: hidden;
     height: 100%;
     display: flex;
     flex-direction: column;
+}
+
+.index-staff .staff-list > li:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.index-staff .staff-list > li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.index-staff .staff-list > li:hover::before {
+    opacity: 1;
+}
+
+.index-staff .staff-list > li:hover .staff-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.index-staff .staff-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s ease;
+}
+
+.index-staff .staff-icon i {
+    font-size: 2rem;
+    background: linear-gradient(45deg, #2563eb, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.4s ease;
+}
+
+.index-staff .staff-title {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.index-staff .staff-content {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.index-staff .staff-tag {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.index-staff .staff-tag span {
+    background: #f0f7ff;
+    color: #3b82f6;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.index-staff .staff-tag span:hover {
+    background: #3b82f6;
+    color: #fff;
+    transform: translateY(-2px);
 }
