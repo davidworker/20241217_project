@@ -1,0 +1,54 @@
+.index-contact {
+    background-color: rgb(248, 249, 250);
+    padding: 80px 0;
+    position: relative;
+}
+
+.index-contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, rgb(0, 123, 255), rgb(0, 198, 255));
+}
+
+.index-contact-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.index-contact-inner h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+}
+
+.index-contact-inner .description {
+    font-size: 18px;
+    color: #868686;
+    text-align: center;
+}
+
+.index-contact-inner .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.index-contact-inner .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
