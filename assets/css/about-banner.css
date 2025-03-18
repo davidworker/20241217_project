@@ -1,0 +1,21 @@
+.about-banner {
+    --about-banner-padding: 120px;
+    padding: calc(var(--header-height) + var(--about-banner-padding)) 0;
+    padding-bottom: var(--about-banner-padding);
+    background: linear-gradient(rgba(37, 99, 235, 0.9), rgba(30, 64, 175, 0.9));
+}
+
+.about-banner-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.about-banner-inner h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 500;
+}
