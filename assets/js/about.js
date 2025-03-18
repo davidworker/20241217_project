@@ -5,11 +5,24 @@ import { AboutInfoAPI } from './api/AboutInfoAPI.js';
 loadAboutBanner('#about-banner-block');
 
 const aboutInfo = await AboutInfoAPI.get();
-let html = '';
-aboutInfo.forEach(function (info) {
-    html += `<${info.title_tag}>${info.title}</${info.title_tag}>
-    <div class="info-block">${info.content}</div>`;
+// let html = '';
+// aboutInfo.forEach(function (info) {
+//     html += `<${info.title_tag}>${info.title}</${info.title_tag}>
+//     <div class="info-block">${info.content}</div>`;
+// });
+
+// let app = document.querySelector('#about-info-app');
+// app.innerHTML = html;
+
+const app = Vue.createApp({
+    data() {
+        return {
+            items: aboutInfo,
+        };
+    },
+    mounted() {
+        console.log('aboutInfo', this.items);
+    },
 });
 
-let app = document.querySelector('#about-info-app');
-app.innerHTML = html;
+app.mount('#about-info-app');
