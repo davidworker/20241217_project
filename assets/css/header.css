@@ -6,6 +6,8 @@
     top: 0;
     left: 0;
     z-index: 9;
+    backdrop-filter: blur(10px);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 10px;
 }
 
 .header-inner {
