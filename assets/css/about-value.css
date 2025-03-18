@@ -1,0 +1,43 @@
+.about-value {
+    padding: 4rem 0;
+    background: var(--section-bg);
+}
+
+.about-value h2 {
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.about-value .value-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.about-value .value-item {
+    background: var(--background);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.about-value .value-item:hover {
+    transform: translateY(-5px);
+}
+
+.about-value .value-item-icon i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.about-value h3 {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.about-value .value-item-content {
+    color: #494949;
+}
