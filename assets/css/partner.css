@@ -1,0 +1,43 @@
+.partner-company {
+    background-color: #fff;
+    padding: 6rem 0;
+}
+
+.partner-company .partner-company-inner h2 {
+    font-size: 2.4rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.partner-company .partner-company-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.partner-company .partner-company-list > div {
+    background: var(--background);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.partner-company .partner-company-list > div:hover {
+    transform: translateY(-5px);
+}
+
+.partner-company .partner-company-list i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.partner-company .partner-company-list .name {
+    margin-bottom: 10px;
+}
+
+.partner-company .partner-company-list .description {
+    color: #4e4e4e;
+}
