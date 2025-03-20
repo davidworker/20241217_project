@@ -1,18 +1,18 @@
-.about-banner {
-    --about-banner-padding: 120px;
-    padding: calc(var(--header-height) + var(--about-banner-padding)) 0;
-    padding-bottom: var(--about-banner-padding);
+.page-banner {
+    --page-banner-padding: 120px;
+    padding: calc(var(--header-height) + var(--page-banner-padding)) 0;
+    padding-bottom: var(--page-banner-padding);
     background: linear-gradient(rgba(37, 99, 235, 0.9), rgba(30, 64, 175, 0.9));
 }
 
-.about-banner-inner {
+.page-banner-inner {
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
 }
 
-.about-banner-inner h1 {
+.page-banner-inner h1 {
     font-size: 3rem;
     letter-spacing: 2px;
     margin: 0;
