@@ -57,3 +57,30 @@
 .news-list .item-link:hover i {
     transform: translateX(5px);
 }
+
+.news-list .news-paginate {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.news-list .news-paginate a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--background);
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+}
+
+.news-list .news-paginate a.active {
+    background: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
