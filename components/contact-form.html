@@ -32,6 +32,7 @@
                             id="contact-form-name"
                             name="name"
                             placeholder="請輸入姓名"
+                            v-model="db.name"
                         />
                     </div>
                     <div class="form-item">
@@ -41,6 +42,7 @@
                             id="contact-form-email"
                             name="email"
                             placeholder="請輸入電子郵件"
+                            v-model="db.email"
                         />
                     </div>
                     <div class="form-item">
@@ -50,6 +52,7 @@
                             id="contact-form-subject"
                             name="subject"
                             placeholder="請輸入主旨"
+                            v-model="db.subject"
                         />
                     </div>
                     <div class="form-item">
@@ -58,6 +61,7 @@
                             id="contact-form-message"
                             name="message"
                             placeholder="請輸入訊息內容"
+                            v-model="db.message"
                         ></textarea>
                     </div>
                     <button type="submit" class="form-submit-btn" @click.prevent="doSubmit">
