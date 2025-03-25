@@ -1,19 +1,18 @@
 <link rel="stylesheet" href="./assets/css/news-list.css" />
-<div class="news-list">
+<div class="news-list" id="news-list-app">
     <div class="container">
         <div class="news-list-inner">
             <div class="news-items">
-                <div>
-                    <div class="item-date">2024/03/15</div>
-                    <h2 class="item-title">老夫科技推出新一代AI解決方案</h2>
-                    <p class="item-content">
-                        結合最新人工智慧技術，為企業提供更智能的營運建議，協助企業在數位時代保持競爭優勢。
-                    </p>
-                    <a href="#" class="item-link">閱讀更多 <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
+                <template v-for="item in items" :key="item.id">
+                    <div>
+                        <div class="item-date">{{ item.date }}</div>
+                        <h2 class="item-title">{{ item.title }}</h2>
+                        <p class="item-content">{{ item.content }}</p>
+                        <a :href="`#${item.id}`" class="item-link"
+                            >閱讀更多 <i class="fas fa-arrow-right"></i
+                        ></a>
+                    </div>
+                </template>
             </div>
         </div>
     </div>
