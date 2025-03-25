@@ -24,12 +24,7 @@
             </div>
             <div class="form-right">
                 <h2>發送訊息</h2>
-                <form
-                    action=""
-                    class="form-wrap"
-                    id="contactForm"
-                    onsubmit="return handleFormSubmit(event)"
-                >
+                <form action="" class="form-wrap" id="contact-form-app">
                     <div class="form-item">
                         <label for="contact-form-name">姓名</label>
                         <input
@@ -65,7 +60,7 @@
                             placeholder="請輸入訊息內容"
                         ></textarea>
                     </div>
-                    <button type="button" class="form-submit-btn" onclick="handleFormSubmit(event)">
+                    <button type="submit" class="form-submit-btn" @click.prevent="doSubmit">
                         送出訊息
                     </button>
                 </form>
