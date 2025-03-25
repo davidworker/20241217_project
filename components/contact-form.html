@@ -64,8 +64,14 @@
                             v-model="db.message"
                         ></textarea>
                     </div>
-                    <button type="submit" class="form-submit-btn" @click.prevent="doSubmit">
-                        送出訊息
+                    <button
+                        type="submit"
+                        class="form-submit-btn"
+                        @click.prevent="doSubmit"
+                        :disabled="isSending"
+                    >
+                        <span v-show="!isSending">送出訊息</span>
+                        <span v-show="isSending">發送中</span>
                     </button>
                 </form>
             </div>

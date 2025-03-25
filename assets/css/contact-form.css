@@ -113,3 +113,8 @@
 .contact-form .form-submit-btn:hover {
     background: #0056b3;
 }
+
+.contact-form .form-submit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
