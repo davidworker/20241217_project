@@ -18,8 +18,6 @@ const load = async function (selector, title = '關於我們', ...params) {
     if (h1) {
         h1.textContent = title;
     }
-
-    console.log(params);
 };
 
 export { load };

@@ -60,9 +60,7 @@ const initApp = function () {
                 }
             },
         },
-        mounted() {
-            console.log('contact form mounted');
-        },
+        mounted() {},
     };
     const app = createApp(options);
     app.mount('#contact-form-app');
