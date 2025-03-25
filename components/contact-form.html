@@ -65,44 +65,11 @@
                             placeholder="請輸入訊息內容"
                         ></textarea>
                     </div>
-                    <button type="submit" class="form-submit-btn">送出訊息</button>
+                    <button type="button" class="form-submit-btn" onclick="handleFormSubmit(event)">
+                        送出訊息
+                    </button>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-    function handleFormSubmit(event) {
-        event.preventDefault();
-
-        const form = document.getElementById('contactForm');
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
-
-        // 替換成您的 Google Apps Script 網址
-        const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
-
-        fetch(scriptURL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-            .then(response => {
-                if (response.ok) {
-                    alert('訊息已成功送出！');
-                    form.reset();
-                } else {
-                    throw new Error('送出失敗');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('發生錯誤，請稍後再試。');
-            });
-
-        return false;
-    }
-</script>
