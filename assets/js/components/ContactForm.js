@@ -1,7 +1,5 @@
 import { loadFile } from './Utils.js';
-
-const APP_URL =
-    'https://script.google.com/macros/s/AKfycbxuUbEdd0mypejefT69813hfItGGhuQ-zYqme8s3Oaq0U7KJdvzQSNwlYvMTEYco6XVxw/exec';
+import { APP_URL } from '../api/env.js';
 
 const initApp = function () {
     const { createApp } = Vue;
