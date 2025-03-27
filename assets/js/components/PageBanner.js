@@ -12,11 +12,19 @@ import { loadFile } from './Utils.js';
  * @param {...string} params 頁面參數
  * @returns {void}
  */
-const load = async function (selector, title = '關於我們', ...params) {
+const load = async function (selector, title = '關於我們', params = {}) {
     await loadFile(selector, './components/page-banner.html');
     const h1 = document.querySelector('.page-banner .page-banner-inner h1');
     if (h1) {
         h1.textContent = title;
+    }
+
+    const subtitle = params.subtitle || '';
+    if (subtitle) {
+        const h2 = document.querySelector('.page-banner .page-banner-inner h2');
+        if (h2) {
+            h2.textContent = subtitle;
+        }
     }
 };
 
