@@ -1,6 +1,6 @@
 import { loadFile } from './Utils.js';
 import { NewListAPI } from '../api/NewsDetailAPI.js';
-
+import { getId } from './NewsDetailUtils.js';
 const initApp = function () {
     const { createApp } = Vue;
     const options = {
@@ -11,16 +11,9 @@ const initApp = function () {
         },
         methods: {
             async init() {
-                let id = this.getId();
+                let id = getId();
                 const data = await NewListAPI.get(id);
                 this.item = data || {};
-            },
-            getId() {
-                try {
-                    return location.search.split('?')[1].split('=')[1];
-                } catch (error) {
-                    return 1;
-                }
             },
         },
         mounted() {
