@@ -1,0 +1,23 @@
+.news-detail-body {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.news-detail-body .news-meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 40px;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.news-detail-body .title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.news-detail-body .content {
+    padding: 60px 0;
+}
