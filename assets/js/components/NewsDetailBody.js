@@ -1,20 +1,45 @@
 import { loadFile } from './Utils.js';
 import { NewListAPI } from '../api/NewsDetailAPI.js';
 
+const initApp = function () {
+    const { createApp } = Vue;
+    const options = {
+        data() {
+            return {
+                item: {},
+            };
+        },
+        methods: {
+            async init() {
+                let id = this.getId();
+                const data = await NewListAPI.get(id);
+                this.item = data || {};
+                console.log(id, this.item);
+            },
+            getId() {
+                try {
+                    return location.search.split('?')[1].split('=')[1];
+                } catch (error) {
+                    return 1;
+                }
+            },
+        },
+        mounted() {
+            console.log('mounted');
+            this.init();
+        },
+    };
+    const app = createApp(options);
+    app.mount('#news-detail-body-app');
+};
+
 /** 載入聯絡表單
  * @param {string} selector 載入的元素
  * @returns {void}
  */
 const load = async function (selector) {
     await loadFile(selector, './components/news-detail-body.html');
-    let id = null;
-    try {
-        id = location.search.split('?')[1].split('=')[1];
-    } catch (error) {
-        id = 1;
-    }
-    const data = await NewListAPI.get(id);
-    console.log(data);
+    initApp();
 };
 
 export { load };
