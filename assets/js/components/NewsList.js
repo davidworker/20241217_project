@@ -7,13 +7,49 @@ const initApp = function () {
         data() {
             return {
                 items: [],
+                page: 1,
+                once: 9,
+                total: 1,
             };
         },
         methods: {
             async init() {
                 const data = await NewListAPI.get();
                 this.items = data;
-                console.log(this.items);
+                this.total = Math.ceil(this.items.length / this.once);
+            },
+            getPage() {
+                let items = [];
+                let start = (this.page - 1) * this.once;
+                let end = start + this.once;
+                for (let i = start; i < end; i++) {
+                    if (this.items[i]) {
+                        items.push(this.items[i]);
+                    }
+                }
+                return items;
+            },
+            toPage(page) {
+                this.page = page;
+                this.toTop();
+            },
+            toPrev() {
+                if (this.page > 1) {
+                    this.page--;
+                    this.toTop();
+                }
+            },
+            toNext() {
+                if (this.page < this.total) {
+                    this.page++;
+                    this.toTop();
+                }
+            },
+            toTop() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth',
+                });
             },
         },
         mounted() {
