@@ -14,7 +14,6 @@ const initApp = function () {
                 let id = this.getId();
                 const data = await NewListAPI.get(id);
                 this.item = data || {};
-                console.log(id, this.item);
             },
             getId() {
                 try {
@@ -32,7 +31,7 @@ const initApp = function () {
     app.mount('#news-detail-body-app');
 };
 
-/** 載入聯絡表單
+/** 載入最新消息詳細頁面
  * @param {string} selector 載入的元素
  * @returns {void}
  */
