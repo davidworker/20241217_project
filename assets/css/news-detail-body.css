@@ -21,3 +21,26 @@
 .news-detail-body .content {
     padding: 60px 0;
 }
+
+.news-detail-body .content p {
+    margin-bottom: 1.5rem;
+}
+
+.news-detail-body .content h2 {
+    font-size: 1.8rem;
+    margin: 2.5rem 0 1.5rem;
+    color: var(--text-color);
+}
+
+.news-detail-body .content ul {
+    list-style-type: disc;
+    padding-left: 1.2rem;
+}
+
+.news-detail-body .content li {
+    margin-bottom: 0.75rem;
+}
+
+.news-detail-body .container {
+    max-width: 800px;
+}

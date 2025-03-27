@@ -3,11 +3,11 @@
     <div class="container">
         <div class="news-detail-body-inner">
             <div class="news-meta">
-                <div class="date">2024/03/01</div>
-                <div class="category">專案實績</div>
+                <div class="date">{{ item.date }}</div>
+                <div class="category">{{ item.category }}</div>
             </div>
-            <h1 class="title">成功完成大型企業數位轉型專案</h1>
-            <div class="content">111111</div>
+            <h1 class="title">{{ item.title }}</h1>
+            <div class="content" v-html="item.content"></div>
         </div>
     </div>
 </div>

@@ -25,7 +25,6 @@ const initApp = function () {
             },
         },
         mounted() {
-            console.log('mounted');
             this.init();
         },
     };
