@@ -1,0 +1,5 @@
+@media (max-width: 768px) {
+    .page-contact-inner .description {
+        padding: 0 15px;
+    }
+}
