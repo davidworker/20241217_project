@@ -1,0 +1,8 @@
+@media (max-width: 768px) {
+    .partner-industry-inner {
+        padding: 0 2rem;
+    }
+    .partner-industry .partner-industry-list {
+        grid-template-columns: 1fr;
+    }
+}
