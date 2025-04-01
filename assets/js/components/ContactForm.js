@@ -51,6 +51,8 @@ const initApp = function () {
                     if (response.ok) {
                         alert('訊息已送出');
                         this.isSending = false;
+                        // 修正表單發送成功後觸發失敗問題
+                        return;
                     }
 
                     throw new Error('訊息送出失敗');
