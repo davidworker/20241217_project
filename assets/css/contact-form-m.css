@@ -1,0 +1,6 @@
+@media (max-width: 768px) {
+    .contact-form .contact-form-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
