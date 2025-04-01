@@ -1,0 +1,5 @@
+@media (max-width: 768px) {
+    .index-staff .staff-list {
+        grid-template-columns: 1fr;
+    }
+}
