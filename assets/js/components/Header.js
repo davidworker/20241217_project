@@ -7,6 +7,7 @@ import { loadFile, currentFile } from './Utils.js';
 const load = async function (selector) {
     await loadFile(selector, './components/header.html');
     activeMenu();
+    mobileMenu();
 };
 
 /**
@@ -24,6 +25,22 @@ const activeMenu = function () {
         if (item.querySelector('a').getAttribute('href') === file) {
             item.classList.add('active');
         }
+    });
+};
+
+/**
+ * 設定手機版選單
+ * @returns {void}
+ */
+const mobileMenu = function () {
+    const menu = document.querySelector('.header .menu');
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    if (!menu || !toggle) {
+        return;
+    }
+
+    toggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
     });
 };
 
