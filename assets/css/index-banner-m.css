@@ -1,0 +1,13 @@
+@media (max-width: 768px) {
+    .index-banner {
+        background-position: right;
+    }
+
+    .index-banner-inner h1 {
+        font-size: 2.8rem;
+    }
+
+    .index-banner-inner h2 {
+        font-size: 1.2rem;
+    }
+}
