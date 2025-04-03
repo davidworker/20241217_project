@@ -103,6 +103,7 @@ const appOptions = {
         },
         logoutUser() {
             signOut(auth);
+            this.todos = [];
         },
         addTodo() {
             console.log(this.todoValue);
