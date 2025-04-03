@@ -90,19 +90,21 @@
                 <div id="todo-tab" class="tab" :class="{ active: activeTab === 'todo' }">
                     <h2>Todo</h2>
                     <div class="current-user">
-                        <span>xxx</span>
+                        <span>User: {{ currentUser }}</span>
                     </div>
                     <div class="todo-input">
-                        <input type="text" />
-                        <button>Add</button>
+                        <input type="text" v-model="todoValue" />
+                        <button @click="addTodo">Add</button>
                     </div>
                     <div class="todo-list">
                         <ul>
-                            <li>
-                                <input type="checkbox" />
-                                <span>Todo 1</span>
-                                <button>Delete</button>
-                            </li>
+                            <template v-for="todo in todos" :key="todo">
+                                <li>
+                                    <input type="checkbox" />
+                                    <span>{{ todo.value }}</span>
+                                    <button>Delete</button>
+                                </li>
+                            </template>
                         </ul>
                     </div>
                     <div class="form-item">

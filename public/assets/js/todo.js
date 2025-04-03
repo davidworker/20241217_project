@@ -32,6 +32,9 @@ const appOptions = {
                 register: false,
                 login: false,
             },
+            currentUser: '',
+            todoValue: '',
+            todos: [],
         };
     },
     methods: {
@@ -101,10 +104,25 @@ const appOptions = {
         logoutUser() {
             signOut(auth);
         },
+        addTodo() {
+            console.log(this.todoValue);
+            if (!this.todoValue) {
+                return;
+            }
+
+            let todo = {
+                id: this.todos.length + 1,
+                status: false,
+                value: this.todoValue,
+            };
+            this.todos.push(todo);
+            this.todoValue = '';
+        },
     },
     mounted() {
         onAuthStateChanged(auth, user => {
             if (user) {
+                this.currentUser = user.email;
                 this.activeTab = 'todo';
             } else {
                 this.activeTab = 'login';
