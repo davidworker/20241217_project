@@ -9,14 +9,21 @@ const appOptions = {
                 password: '',
                 confirmPassword: '',
             },
+            login: {
+                email: '',
+                password: '',
+            },
             errorMessage: {
                 register: '',
+                login: '',
             },
             timer: {
                 register: null,
+                login: null,
             },
             running: {
                 register: false,
+                login: false,
             },
         };
     },

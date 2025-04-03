@@ -108,7 +108,7 @@ body {
     background-color: #333;
 }
 
-#register-tab h2 {
+.tab h2 {
     margin-bottom: 1.5rem;
     color: #333;
     font-size: 1.5rem;
