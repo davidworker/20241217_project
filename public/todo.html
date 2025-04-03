@@ -43,8 +43,15 @@
                         <label for="login-password">Password</label>
                         <input type="password" id="login-password" v-model="login.password" />
                     </div>
-                    <div class="form-item">
-                        <button class="btn" @click="loginUser">Login</button>
+                    <div class="col-2">
+                        <div class="form-item">
+                            <button class="btn" @click="loginUser">Login</button>
+                        </div>
+                        <div class="form-item">
+                            <button class="btn link-btn" @click="activeTab = 'register'">
+                                Register
+                            </button>
+                        </div>
                     </div>
                     <div class="error-message" v-if="errorMessage.login">
                         {{ errorMessage.login }}
@@ -68,8 +75,13 @@
                             v-model="register.confirmPassword"
                         />
                     </div>
-                    <div class="form-item">
-                        <button class="btn" @click="registerUser">Register</button>
+                    <div class="col-2">
+                        <div class="form-item">
+                            <button class="btn link-btn" @click="activeTab = 'login'">Login</button>
+                        </div>
+                        <div class="form-item">
+                            <button class="btn" @click="registerUser">Register</button>
+                        </div>
                     </div>
                     <div class="error-message" v-if="errorMessage.register">
                         {{ errorMessage.register }}

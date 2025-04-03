@@ -51,6 +51,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 5px;
     margin-bottom: 1rem;
+    display: none;
 }
 
 .tab-nav .btn {
@@ -106,6 +107,16 @@ body {
 
 .form-item .btn:hover {
     background-color: #333;
+}
+
+.btn.link-btn {
+    color: #424242;
+    background-color: transparent;
+}
+
+.btn.link-btn:hover {
+    color: #374151;
+    background-color: transparent;
 }
 
 .tab h2 {
@@ -238,4 +249,10 @@ body {
 
 .todo-list button:hover {
     background-color: #b91c1c;
+}
+
+.col-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
 }

@@ -4,6 +4,7 @@ import {
     createUserWithEmailAndPassword,
     signOut,
     signInWithEmailAndPassword,
+    onAuthStateChanged,
 } from './firebase_controller.js';
 
 const appOptions = {
@@ -59,8 +60,6 @@ const appOptions = {
                 for (const key in this.register) {
                     this.register[key] = '';
                 }
-
-                this.activeTab = 'todo';
             } catch (e) {
                 this.errorMessage.register = e.message;
                 clearTimeout(this.timer.register);
@@ -89,8 +88,6 @@ const appOptions = {
                 for (const key in this.login) {
                     this.login[key] = '';
                 }
-
-                this.activeTab = 'todo';
             } catch (e) {
                 this.errorMessage.login = e.message;
                 clearTimeout(this.timer.login);
@@ -103,8 +100,16 @@ const appOptions = {
         },
         logoutUser() {
             signOut(auth);
-            this.activeTab = 'login';
         },
+    },
+    mounted() {
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                this.activeTab = 'todo';
+            } else {
+                this.activeTab = 'login';
+            }
+        });
     },
 };
 
