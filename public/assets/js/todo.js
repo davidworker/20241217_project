@@ -1,3 +1,5 @@
+import {} from './firebase_controller.js';
+
 const appOptions = {
     data() {
         return {
