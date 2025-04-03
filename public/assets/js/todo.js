@@ -117,6 +117,31 @@ const appOptions = {
             };
             this.todos.push(todo);
             this.todoValue = '';
+            this.localSave();
+        },
+        toggleTodo(id) {
+            this.todos.map((todo, index) => {
+                if (todo.id === id) {
+                    todo.status = !todo.status;
+                    this.todos[index] = todo;
+                }
+            });
+            this.localSave();
+        },
+        deleteTodo(id) {
+            this.todos = this.todos.filter(todo => todo.id !== id);
+            this.localSave();
+        },
+        localSave() {
+            let uid = this.currentUser.split('@')[0] + '_todos';
+            localStorage.setItem(uid, JSON.stringify(this.todos));
+        },
+        localLoad() {
+            let uid = this.currentUser.split('@')[0] + '_todos';
+            let todos = localStorage.getItem(uid);
+            if (todos) {
+                this.todos = JSON.parse(todos);
+            }
         },
     },
     mounted() {
@@ -124,6 +149,7 @@ const appOptions = {
             if (user) {
                 this.currentUser = user.email;
                 this.activeTab = 'todo';
+                this.localLoad();
             } else {
                 this.activeTab = 'login';
             }

@@ -100,9 +100,13 @@
                         <ul>
                             <template v-for="todo in todos" :key="todo">
                                 <li>
-                                    <input type="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        :checked="todo.status"
+                                        @click="toggleTodo(todo.id)"
+                                    />
                                     <span>{{ todo.value }}</span>
-                                    <button>Delete</button>
+                                    <button @click="deleteTodo(todo.id)">Delete</button>
                                 </li>
                             </template>
                         </ul>
