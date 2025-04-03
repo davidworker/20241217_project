@@ -1,4 +1,4 @@
-import { auth, database, createUserWithEmailAndPassword } from './firebase_controller.js';
+import { auth, database, createUserWithEmailAndPassword, signOut } from './firebase_controller.js';
 
 const appOptions = {
     data() {
@@ -57,6 +57,10 @@ const appOptions = {
             } finally {
                 this.running.register = false;
             }
+        },
+        logout() {
+            signOut(auth);
+            this.activeTab = 'login';
         },
     },
 };
