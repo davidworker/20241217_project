@@ -15,11 +15,19 @@ const appOptions = {
             timer: {
                 register: null,
             },
+            running: {
+                register: false,
+            },
         };
     },
     methods: {
         async registerUser() {
             try {
+                if (this.running.register) {
+                    throw new Error('Please wait for the registration to complete');
+                }
+                this.running.register = true;
+
                 for (const key in this.register) {
                     if (this.register[key] === '') {
                         throw new Error('Please fill in all fields');
@@ -29,18 +37,25 @@ const appOptions = {
                     throw new Error('Password and Confirm Password do not match');
                 }
 
-                let user = await createUserWithEmailAndPassword(
+                await createUserWithEmailAndPassword(
                     auth,
                     this.register.email,
                     this.register.password
                 );
-                console.log(user);
+
+                for (const key in this.register) {
+                    this.register[key] = '';
+                }
+
+                this.activeTab = 'todo';
             } catch (e) {
                 this.errorMessage.register = e.message;
                 clearTimeout(this.timer.register);
                 this.timer.register = setTimeout(() => {
                     this.errorMessage.register = '';
                 }, 3000);
+            } finally {
+                this.running.register = false;
             }
         },
     },
