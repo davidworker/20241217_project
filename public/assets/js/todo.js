@@ -1,4 +1,10 @@
-import { auth, database, createUserWithEmailAndPassword, signOut } from './firebase_controller.js';
+import {
+    auth,
+    database,
+    createUserWithEmailAndPassword,
+    signOut,
+    signInWithEmailAndPassword,
+} from './firebase_controller.js';
 
 const appOptions = {
     data() {
@@ -65,7 +71,37 @@ const appOptions = {
                 this.running.register = false;
             }
         },
-        logout() {
+        async loginUser() {
+            try {
+                if (this.running.login) {
+                    throw new Error('Please wait for the login to complete');
+                }
+                this.running.login = true;
+
+                for (const key in this.login) {
+                    if (this.login[key] === '') {
+                        throw new Error('Please fill in all fields');
+                    }
+                }
+
+                await signInWithEmailAndPassword(auth, this.login.email, this.login.password);
+
+                for (const key in this.login) {
+                    this.login[key] = '';
+                }
+
+                this.activeTab = 'todo';
+            } catch (e) {
+                this.errorMessage.login = e.message;
+                clearTimeout(this.timer.login);
+                this.timer.login = setTimeout(() => {
+                    this.errorMessage.login = '';
+                }, 3000);
+            } finally {
+                this.running.login = false;
+            }
+        },
+        logoutUser() {
             signOut(auth);
             this.activeTab = 'login';
         },
