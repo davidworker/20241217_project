@@ -10,16 +10,41 @@
         <div class="container">
             <h1 class="title">Todo With Firebase</h1>
             <div id="app">
-                <div id="login-tab" class="tab active">
+                <div class="tab-nav">
+                    <button
+                        class="btn"
+                        :class="{ active: activeTab === 'login' }"
+                        @click="activeTab = 'login'"
+                    >
+                        Login
+                    </button>
+                    <button
+                        class="btn"
+                        :class="{ active: activeTab === 'register' }"
+                        @click="activeTab = 'register'"
+                    >
+                        Register
+                    </button>
+                    <button
+                        class="btn"
+                        :class="{ active: activeTab === 'todo' }"
+                        @click="activeTab = 'todo'"
+                    >
+                        Todo
+                    </button>
+                </div>
+                <div id="login-tab" class="tab" :class="{ active: activeTab === 'login' }">
                     <h2>Login</h2>
                 </div>
-                <div id="register-tab" class="tab">
+                <div id="register-tab" class="tab" :class="{ active: activeTab === 'register' }">
                     <h2>Register</h2>
                 </div>
-                <div id="todo-tab" class="tab">
+                <div id="todo-tab" class="tab" :class="{ active: activeTab === 'todo' }">
                     <h2>Todo</h2>
                 </div>
             </div>
         </div>
     </body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="assets/js/todo.js"></script>
 </html>

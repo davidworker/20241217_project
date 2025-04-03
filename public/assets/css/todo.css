@@ -41,4 +41,27 @@ body {
 
 .tab.active {
     display: block;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+
+.tab-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    margin-bottom: 1rem;
+}
+
+.tab-nav .btn {
+    border: 0;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-nav .btn.active,
+.tab-nav .btn:hover {
+    background-color: #000;
+    color: #fff;
 }
