@@ -130,9 +130,9 @@ const appOptions = {
             let node = `${this.realtimeDatabaseNode}/${uid}`;
             updateValue(node, this.todos[uid]);
         },
-        deleteTodo(id) {
-            this.todos = this.todos.filter(todo => todo.id !== id);
-            this.localSave();
+        deleteTodo(uid) {
+            let node = `${this.realtimeDatabaseNode}/${uid}`;
+            removeValue(node);
         },
         localSave() {
             let uid = this.currentUser.split('@')[0] + '_todos';
@@ -151,7 +151,6 @@ const appOptions = {
             if (user) {
                 this.currentUser = user.email;
                 this.activeTab = 'todo';
-                this.localLoad();
                 this.realtimeDatabaseNode = `todos/${user.uid}`;
                 this.realtimeDatabaseListener = listen(this.realtimeDatabaseNode, value => {
                     console.log(value);
