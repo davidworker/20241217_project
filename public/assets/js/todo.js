@@ -12,29 +12,6 @@ import {
     listen,
 } from './firebase_controller.js';
 
-listen('demo', (value, snapshot) => {
-    console.log(value, snapshot);
-});
-
-// const demo = await getValue('demo');
-// console.log(demo);
-
-// const value = { name: 'David', age: 20 };
-// setValue('demo', value);
-
-// const value = { name: 'David', age: 22 };
-// appendValue('demo', value);
-
-// let node = 'demo/-ONK8OgNEVUJfbwoLjay';
-// let object = { name: 'Helen', country: 'Taiwan' };
-// updateValue(node, object);
-
-// let node = 'demo/-ONKDpBpiVY4aTaVxorU';
-// removeValue(node);
-
-// let object = await getObject(node);
-// console.log(object);
-
 const appOptions = {
     data() {
         return {
@@ -63,6 +40,7 @@ const appOptions = {
             currentUser: '',
             todoValue: '',
             todos: [],
+            realtimeDatabaseNode: '',
         };
     },
     methods: {
@@ -134,19 +112,15 @@ const appOptions = {
             this.todos = [];
         },
         addTodo() {
-            console.log(this.todoValue);
             if (!this.todoValue) {
                 return;
             }
-
             let todo = {
-                id: this.todos.length + 1,
                 status: false,
                 value: this.todoValue,
             };
-            this.todos.push(todo);
+            appendValue(this.realtimeDatabaseNode, todo);
             this.todoValue = '';
-            this.localSave();
         },
         toggleTodo(id) {
             this.todos.map((todo, index) => {
@@ -179,8 +153,14 @@ const appOptions = {
                 this.currentUser = user.email;
                 this.activeTab = 'todo';
                 this.localLoad();
+                this.realtimeDatabaseNode = `todos/${user.uid}`;
+                listen(this.realtimeDatabaseNode, value => {
+                    console.log(value);
+                    this.todos = value;
+                });
             } else {
                 this.activeTab = 'login';
+                this.realtimeDatabaseNode = '';
             }
         });
     },
