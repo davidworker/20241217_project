@@ -15,6 +15,7 @@ import {
     update,
     remove,
     get,
+    off,
 } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js';
 
 const firebaseConfig = {
@@ -34,13 +35,15 @@ const database = getDatabase(app);
 /**
  * 監聽資料
  * @param {*} node
- * @returns
+ * @param {*} callback
+ * @returns {Function} 取消監聽的函數
  */
 const listen = (node, callback) => {
     const nodeRef = ref(database, node);
     onValue(nodeRef, snapshot => {
         callback(snapshot.val(), snapshot);
     });
+    return () => off(nodeRef);
 };
 
 /**

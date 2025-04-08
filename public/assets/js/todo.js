@@ -39,8 +39,9 @@ const appOptions = {
             },
             currentUser: '',
             todoValue: '',
-            todos: [],
+            todos: {},
             realtimeDatabaseNode: '',
+            realtimeDatabaseListener: null,
         };
     },
     methods: {
@@ -122,14 +123,12 @@ const appOptions = {
             appendValue(this.realtimeDatabaseNode, todo);
             this.todoValue = '';
         },
-        toggleTodo(id) {
-            this.todos.map((todo, index) => {
-                if (todo.id === id) {
-                    todo.status = !todo.status;
-                    this.todos[index] = todo;
-                }
-            });
-            this.localSave();
+        toggleTodo(uid) {
+            if (this.todos[uid]) {
+                this.todos[uid].status = !this.todos[uid].status;
+            }
+            let node = `${this.realtimeDatabaseNode}/${uid}`;
+            updateValue(node, this.todos[uid]);
         },
         deleteTodo(id) {
             this.todos = this.todos.filter(todo => todo.id !== id);
@@ -154,13 +153,14 @@ const appOptions = {
                 this.activeTab = 'todo';
                 this.localLoad();
                 this.realtimeDatabaseNode = `todos/${user.uid}`;
-                listen(this.realtimeDatabaseNode, value => {
+                this.realtimeDatabaseListener = listen(this.realtimeDatabaseNode, value => {
                     console.log(value);
                     this.todos = value;
                 });
             } else {
                 this.activeTab = 'login';
                 this.realtimeDatabaseNode = '';
+                // this.realtimeDatabaseListener();
             }
         });
     },

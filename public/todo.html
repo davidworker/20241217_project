@@ -98,15 +98,15 @@
                     </div>
                     <div class="todo-list">
                         <ul>
-                            <template v-for="todo in todos" :key="todo">
+                            <template v-for="(todo, todoUID) in todos" :key="todo">
                                 <li>
                                     <input
                                         type="checkbox"
                                         :checked="todo.status"
-                                        @click="toggleTodo(todo.id)"
+                                        @click="toggleTodo(todoUID)"
                                     />
                                     <span>{{ todo.value }}</span>
-                                    <button @click="deleteTodo(todo.id)">Delete</button>
+                                    <button @click="deleteTodo(todoUID)">Delete</button>
                                 </li>
                             </template>
                         </ul>
