@@ -10,6 +10,7 @@ import {
     getDatabase,
     ref,
     onValue,
+    set,
 } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js';
 
 const firebaseConfig = {
@@ -26,6 +27,11 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getDatabase(app);
 
+/**
+ * 讀取資料
+ * @param {*} node
+ * @returns
+ */
 const getValue = node => {
     return new Promise((resolve, reject) => {
         const nodeRef = ref(database, node);
@@ -35,6 +41,16 @@ const getValue = node => {
     });
 };
 
+/**
+ * 寫入資料，會強制覆蓋
+ * @param {*} node
+ * @param {*} value
+ */
+const setValue = (node, value) => {
+    const nodeRef = ref(database, node);
+    set(nodeRef, value);
+};
+
 export {
     auth,
     createUserWithEmailAndPassword,
@@ -42,4 +58,5 @@ export {
     signInWithEmailAndPassword,
     onAuthStateChanged,
     getValue,
+    setValue,
 };

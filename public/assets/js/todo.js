@@ -5,10 +5,14 @@ import {
     signInWithEmailAndPassword,
     onAuthStateChanged,
     getValue,
+    setValue,
 } from './firebase_controller.js';
 
-const todos = await getValue('todos');
-console.log(todos);
+// const demo = await getValue('demo');
+// console.log(demo);
+
+const value = { name: 'David', age: 20 };
+setValue('demo', value);
 
 const appOptions = {
     data() {
