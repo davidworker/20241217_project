@@ -159,7 +159,7 @@ const appOptions = {
             } else {
                 this.activeTab = 'login';
                 this.realtimeDatabaseNode = '';
-                // this.realtimeDatabaseListener();
+                this.realtimeDatabaseListener();
             }
         });
     },
