@@ -32,18 +32,16 @@ const auth = getAuth(app);
 const database = getDatabase(app);
 
 /**
- * 讀取資料(x) 監聽資料(o)
+ * 監聽資料
  * @param {*} node
  * @returns
  */
-// const getValue = node => {
-//     return new Promise((resolve, reject) => {
-//         const nodeRef = ref(database, node);
-//         onValue(nodeRef, snapshot => {
-//             resolve(snapshot.val());
-//         });
-//     });
-// };
+const listen = (node, callback) => {
+    const nodeRef = ref(database, node);
+    onValue(nodeRef, snapshot => {
+        callback(snapshot.val(), snapshot);
+    });
+};
 
 /**
  * 寫入資料，會強制覆蓋
@@ -107,4 +105,5 @@ export {
     appendValue,
     updateValue,
     removeValue,
+    listen,
 };

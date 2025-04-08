@@ -9,10 +9,15 @@ import {
     appendValue,
     updateValue,
     removeValue,
+    listen,
 } from './firebase_controller.js';
 
-const demo = await getValue('demo');
-console.log(demo);
+listen('demo', (value, snapshot) => {
+    console.log(value, snapshot);
+});
+
+// const demo = await getValue('demo');
+// console.log(demo);
 
 // const value = { name: 'David', age: 20 };
 // setValue('demo', value);
