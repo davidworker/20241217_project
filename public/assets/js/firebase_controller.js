@@ -11,6 +11,7 @@ import {
     ref,
     onValue,
     set,
+    push,
 } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js';
 
 const firebaseConfig = {
@@ -51,6 +52,17 @@ const setValue = (node, value) => {
     set(nodeRef, value);
 };
 
+/**
+ * 新增資料，自動產生 key
+ * @param {*} node
+ * @param {*} value
+ */
+const appendValue = (node, value) => {
+    const nodeRef = ref(database, node);
+    const newRef = push(nodeRef); // 產生 key -> node/key
+    set(newRef, value);
+};
+
 export {
     auth,
     createUserWithEmailAndPassword,
@@ -59,4 +71,5 @@ export {
     onAuthStateChanged,
     getValue,
     setValue,
+    appendValue,
 };

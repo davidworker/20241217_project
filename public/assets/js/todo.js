@@ -6,13 +6,17 @@ import {
     onAuthStateChanged,
     getValue,
     setValue,
+    appendValue,
 } from './firebase_controller.js';
 
 // const demo = await getValue('demo');
 // console.log(demo);
 
-const value = { name: 'David', age: 20 };
-setValue('demo', value);
+// const value = { name: 'David', age: 20 };
+// setValue('demo', value);
+
+const value = { name: 'David', age: 22 };
+appendValue('demo', value);
 
 const appOptions = {
     data() {
