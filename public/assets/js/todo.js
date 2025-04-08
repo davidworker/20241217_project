@@ -8,10 +8,11 @@ import {
     setValue,
     appendValue,
     updateValue,
+    removeValue,
 } from './firebase_controller.js';
 
-// const demo = await getValue('demo');
-// console.log(demo);
+const demo = await getValue('demo');
+console.log(demo);
 
 // const value = { name: 'David', age: 20 };
 // setValue('demo', value);
@@ -19,9 +20,15 @@ import {
 // const value = { name: 'David', age: 22 };
 // appendValue('demo', value);
 
-let node = 'demo/-ONK8OgNEVUJfbwoLjay';
-let object = { name: 'Helen', country: 'Taiwan' };
-updateValue(node, object);
+// let node = 'demo/-ONK8OgNEVUJfbwoLjay';
+// let object = { name: 'Helen', country: 'Taiwan' };
+// updateValue(node, object);
+
+// let node = 'demo/-ONKDpBpiVY4aTaVxorU';
+// removeValue(node);
+
+// let object = await getObject(node);
+// console.log(object);
 
 const appOptions = {
     data() {

@@ -13,6 +13,8 @@ import {
     set,
     push,
     update,
+    remove,
+    get,
 } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js';
 
 const firebaseConfig = {
@@ -30,18 +32,18 @@ const auth = getAuth(app);
 const database = getDatabase(app);
 
 /**
- * 讀取資料
+ * 讀取資料(x) 監聽資料(o)
  * @param {*} node
  * @returns
  */
-const getValue = node => {
-    return new Promise((resolve, reject) => {
-        const nodeRef = ref(database, node);
-        onValue(nodeRef, snapshot => {
-            resolve(snapshot.val());
-        });
-    });
-};
+// const getValue = node => {
+//     return new Promise((resolve, reject) => {
+//         const nodeRef = ref(database, node);
+//         onValue(nodeRef, snapshot => {
+//             resolve(snapshot.val());
+//         });
+//     });
+// };
 
 /**
  * 寫入資料，會強制覆蓋
@@ -74,6 +76,26 @@ const updateValue = (node, object) => {
     update(nodeRef, object);
 };
 
+/**
+ * 刪除資料
+ * @param {*} node
+ */
+const removeValue = node => {
+    const nodeRef = ref(database, node);
+    remove(nodeRef);
+};
+
+/**
+ * 取得資料
+ * @param {*} node
+ * @returns
+ */
+const getValue = async node => {
+    const nodeRef = ref(database, node);
+    const snapshot = await get(nodeRef);
+    return snapshot.val();
+};
+
 export {
     auth,
     createUserWithEmailAndPassword,
@@ -84,4 +106,5 @@ export {
     setValue,
     appendValue,
     updateValue,
+    removeValue,
 };
