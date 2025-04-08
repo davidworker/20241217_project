@@ -7,6 +7,7 @@ import {
     getValue,
     setValue,
     appendValue,
+    updateValue,
 } from './firebase_controller.js';
 
 // const demo = await getValue('demo');
@@ -15,8 +16,12 @@ import {
 // const value = { name: 'David', age: 20 };
 // setValue('demo', value);
 
-const value = { name: 'David', age: 22 };
-appendValue('demo', value);
+// const value = { name: 'David', age: 22 };
+// appendValue('demo', value);
+
+let node = 'demo/-ONK8OgNEVUJfbwoLjay';
+let object = { name: 'Helen', country: 'Taiwan' };
+updateValue(node, object);
 
 const appOptions = {
     data() {

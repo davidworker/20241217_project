@@ -12,6 +12,7 @@ import {
     onValue,
     set,
     push,
+    update,
 } from 'https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js';
 
 const firebaseConfig = {
@@ -63,6 +64,16 @@ const appendValue = (node, value) => {
     set(newRef, value);
 };
 
+/**
+ * 更新資料
+ * @param {*} node
+ * @param {*} object
+ */
+const updateValue = (node, object) => {
+    const nodeRef = ref(database, node);
+    update(nodeRef, object);
+};
+
 export {
     auth,
     createUserWithEmailAndPassword,
@@ -72,4 +83,5 @@ export {
     getValue,
     setValue,
     appendValue,
+    updateValue,
 };
