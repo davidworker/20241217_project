@@ -1,11 +1,14 @@
 import {
     auth,
-    database,
     createUserWithEmailAndPassword,
     signOut,
     signInWithEmailAndPassword,
     onAuthStateChanged,
+    getValue,
 } from './firebase_controller.js';
+
+const todos = await getValue('todos');
+console.log(todos);
 
 const appOptions = {
     data() {
